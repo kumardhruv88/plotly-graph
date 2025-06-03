@@ -30,14 +30,14 @@ if plot:
     st.text('size reprensts primary parameter')
     st.text('color represents secondary parameter')
     if selected_state=='overall india':
-        fig=px.scatter_map(df,lat='Latitude',lon='Longitude',zoom=3,size=primary,color=secondary,mapbox_style='carto-positron',width=1200,height=700,size_max=35,hover_name='District')
+        fig=px.scatter_mapbox(df,lat='Latitude',lon='Longitude',zoom=3,size=primary,color=secondary,mapbox_style='carto-positron',width=1200,height=700,size_max=35,hover_name='District')
 
         st.plotly_chart(fig,use_container_width=True)
 
     else:
         state_df=df[df['State']==selected_state]
 
-        fig=px.scatter_map(state_df,lat='Latitude',lon='Longitude',zoom=3,size=primary,color=secondary,mapbox_style='carto-positron',width=1200,height=700,size_max=35)
+        fig=px.scatter_mapbox(state_df,lat='Latitude',lon='Longitude',zoom=3,size=primary,color=secondary,mapbox_style='carto-positron',width=1200,height=700,size_max=35)
 
         st.plotly_chart(fig,use_container_width=True)
         
